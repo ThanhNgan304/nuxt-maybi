@@ -1,8 +1,8 @@
 <template>
     <div>
         <header 
-        class="w-full shadow-sm bg-white fixed top-0" >
-            <nav class=" mx-auto flex justify-between items-center p-4 bg-white">
+        class="w-screen shadow-sm bg-white fixed top-0" >
+            <nav class="container mx-auto flex justify-between items-center p-4 bg-white">
                 <NuxtLink class="font-bold" to="/">Demo</NuxtLink>
                 <ul class="flex items-center gap-3">
                     <li><NuxtLink to="/">Home</NuxtLink></li>
