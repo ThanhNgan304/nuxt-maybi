@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto py-20">
+    <div class="container mx-auto py-20 overflow-hidden">
         <Head>
             <Title>Maskcodex | {{ product.title }}</Title>
             <Meta name="description" :content="product.description" />
