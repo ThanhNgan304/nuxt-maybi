@@ -15,7 +15,7 @@
 
         <ThePreloader />
         <!-- output the page content -->
-        <div class="my-20">
+        <div class="">
             <NuxtPage />
         </div>
         

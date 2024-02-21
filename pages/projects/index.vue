@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto py-20">
         <h2 class="font-bold text-4xl my-10 text-center">All Projects</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             <div v-for="(p, index) in products" :key="index" :data-index="index">

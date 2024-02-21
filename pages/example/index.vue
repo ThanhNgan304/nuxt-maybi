@@ -1,7 +1,7 @@
 <!-- layout.vue | page.vue | component.vue -->
 
 <template>
-    <div>
+    <div class="container mx-auto py-20">
         <h1 class="title">Exxaaaapleee</h1>
     </div>
 </template>

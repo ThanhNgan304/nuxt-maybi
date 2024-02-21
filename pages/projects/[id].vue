@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto py-20">
         <Head>
             <Title>Maskcodex | {{ product.title }}</Title>
             <Meta name="description" :content="product.description" />

@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4">
+    <div class="container mx-auto py-20">
         <Transition appear name="fade" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
             <h2 class="font-bold text-6xl mb-7">About</h2>
         </Transition>
