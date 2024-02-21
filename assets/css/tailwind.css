@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-50;
+}
+
+@layer components {
+    .btn {
+        @apply bg-[#161d28] text-white px-3 py-3 rounded-md text-sm transition-all relative z-0 overflow-hidden
+        before:bg-[#53956f] before:absolute before:top-0 before:left-0
+        before:w-full before:h-full before:rounded-md before:transition-all 
+        hover:before:translate-y-[92%] hover:before:opacity-75  hover:before:rounded-none ;
+
+        &::before {
+            z-index: -1;
+        }
+    }
+    .card {
+        @apply p-3 rounded-md bg-white shadow-md h-full;
+    }
+}
