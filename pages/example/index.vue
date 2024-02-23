@@ -3,6 +3,7 @@
 <template>
     <div class="container mx-auto py-20">
         <h1 class="title">Exxaaaapleee</h1>
+        <TextAnime />
     </div>
 </template>
   

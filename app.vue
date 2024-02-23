@@ -22,7 +22,7 @@
 }
 .layout-enter-from,
 .layout-leave-to {
-  filter: ;
+  filter: grayscale(1);
 }
 
 .rotate-enter-active,

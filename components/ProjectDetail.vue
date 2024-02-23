@@ -5,7 +5,7 @@
                 <div class="p-7">
                     <img :src="project.image" alt="product img" class="mx-auto my-7 max-w-full">
                 </div>
-                <div class="animate-content p-7">
+                <div class="animate-content p-7 text-[var(--secondary-color)]">
                     <h2 class="text-4xl my-7">{{ project.title }}</h2>
                     <p class="text-xl my-7">Price - ${{ project.price }}</p>
                     <h3 class="font-bold border-b-2 mb-4 pb-2">Product description:</h3>
