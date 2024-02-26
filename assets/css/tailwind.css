@@ -59,12 +59,11 @@ body {
         }
     }
 
-    .btn-rounded-full {
-        @apply bg-secondary text-white px-6 py-3 rounded-full text-sm transition-all relative z-0 overflow-hidden
-        before:bg-primary before:absolute before:top-0 before:left-0
+    .btn-secondary {
+        @apply bg-secondary text-secondary px-6 py-3 rounded-full border border-[var(--secondary)] transition-all relative z-0 overflow-hidden
+        before:bg-white before:absolute before:top-0 before:left-0
         before:w-full before:h-full before:rounded-full before:transition-all 
-        hover:before:scale-0 hover:before:opacity-75  hover:before:rounded-none 
-        hover:outline hover:outline-1 hover:outline-[var(--primary-color)];
+        hover:before:translate-y-full;
 
         &::before {
             z-index: -1;
@@ -75,5 +74,8 @@ body {
         @apply p-3 rounded-md bg-white shadow-md h-full;
     }
 
+    .d-none {
+        display: none;
+    }
     
 }

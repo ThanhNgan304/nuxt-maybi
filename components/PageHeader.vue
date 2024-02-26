@@ -6,7 +6,7 @@
                     <img src="/assets/img/logo.svg" alt="logo" class="w-[100px] md:w-[120px] 2xl:w-[160px]">
                 </NuxtLink>
                 <div class="flex items-center">
-                    <ul class="flex items-center md:gap-4 lg:gap-8 mr-4 text-black text-[15px]">
+                    <ul class="flex items-center gap-4 lg:gap-8 mr-4 text-black text-[15px]">
                         <li>
                             <IconField iconPosition="right"
                                 class="group flex items-center gap-1 rounded-full transition-all duration-500
@@ -23,7 +23,7 @@
                         </li>
                         <li class="h-">
                             <NuxtLink to="/cart" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
-                                <span>Giỏ hàng</span>
+                                <span class="d-none sm:inline">Giỏ hàng</span>
                                 <span class="material-symbols-outlined">
                                     local_mall
                                 </span>
@@ -31,17 +31,17 @@
                         </li>
                         <li>
                             <NuxtLink to="/account" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
-                                <span>Tài khoản</span>
+                                <span class="d-none sm:inline">Tài khoản</span>
                                 <span class="material-symbols-outlined">
                                     account_circle
                                 </span>
                             </NuxtLink>
                         </li>
                     </ul>
-                    <ul class="flex items-center md:gap-4 text-black text-[15px]">
+                    <ul class="flex items-center gap-4 text-black text-[15px]">
                         <li>
                             <NuxtLink to="/account"
-                                class="hover:text-[var(--primary-color)] flex items-center border-l border-black md:pl-4">
+                                class="hover:text-[var(--primary-color)] flex items-center border-l border-black pl-4">
                                 <span class="material-symbols-outlined">
                                     globe_uk
                                 </span>
