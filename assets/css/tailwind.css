@@ -14,7 +14,7 @@
         font-family:  "IBM Plex Sans", sans-serif !important;
     }
     .container {
-        @apply mx-auto py-6 md:py-12 px-4 sm:px-0;
+        @apply mx-auto py-6 md:py-12 px-4;
     }
 
     .text-primary{
