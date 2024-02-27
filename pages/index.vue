@@ -41,8 +41,8 @@
                     <Carousel :value="categories" :numVisible="5" :numScroll="1" :responsiveOptions="responsiveOptions"
                         :showNavigators="true" :showIndicators="false" circular :allowAutoplay="false" :pt="{
                             container: { class: 'relative' },
-                            previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary', 'focus:text-primary'] },
-                            nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary', 'focus:text-primary'] },
+                            previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary', ] },
+                            nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary', ] },
                             itemsContainer: { class: 'mt-[4rem]' },
                         }">
                         <template #item="slotProps">
