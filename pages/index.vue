@@ -88,18 +88,21 @@
                     <div class=" absolute px-2 py-1 md:px-8 md:py-2 rounded-full flex items-center gap-2 bg-white">
                         <h2 class="font-bold uppercase text-base md:text-xl lg:text-3xl">FLASH SALE</h2>
                         <div class="grid grid-cols-3 gap-2">
-                            <div class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
+                            <div
+                                class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
                                 <span class="text-primary font-bold text-xs md:text-base">06</span>
                             </div>
-                            <div class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
+                            <div
+                                class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
                                 <span class="text-primary font-bold text-xs md:text-base">53</span>
                             </div>
-                            <div class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
+                            <div
+                                class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
                                 <span class="text-primary font-bold text-xs md:text-base">20</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <Carousel :value="flashSales" :numVisible="6" :numScroll="1" :responsiveOptions="responsiveOptionsFs"
                         :showNavigators="true" :showIndicators="false" circular :allowAutoplay="false" :pt="{
                             container: { class: 'relative' },
@@ -112,15 +115,18 @@
                                 <NuxtLink to="/" class="group">
                                     <div class="relative">
                                         <div class="h-[212px] sm:h-[256px] lg:h-[302px] relative">
-                                            <img :src="slotProps.data.src02" alt="" class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
-                                            <img :src="slotProps.data.src" alt="" class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
-                                            
+                                            <img :src="slotProps.data.src02" alt=""
+                                                class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
+                                            <img :src="slotProps.data.src" alt=""
+                                                class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
+
                                         </div>
                                         <div class="p-2 bg-white">
-                                            <h3 class="font-bold mb-1 text-primary">{{ slotProps.data.sale_price }}</h3>
+                                            <p class="font-bold mb-1 text-primary">{{ slotProps.data.sale_price }}</p>
                                             <p class="line-through text-sm">{{ slotProps.data.price }}</p>
                                         </div>
-                                        <div class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
+                                        <div
+                                            class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
                                             <span>-25%</span>
                                         </div>
                                     </div>
@@ -145,6 +151,61 @@
                             <span class="pl-2 group-hover/btn:text-secondary">Xem tất cả</span>
                             <span
                                 class="material-symbols-outlined transition-all -translate-x-2 group-hover/btn:translate-x-0.5 group-hover/btn:text-secondary">
+                                chevron_right
+                            </span>
+                        </div>
+                    </NuxtLink>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div data-aos="fade-out" class="mt-4">
+                <img src="/assets/img/banner-2.png" alt="" class="w-full h-auto object-cover">
+            </div>
+            <div data-aos="fade-out" class="mt-4">
+                <img src="/assets/img/banner.png" alt="" class="w-full h-auto object-cover">
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="">
+                    <h2 class="font-bold uppercase">Sản PHẨM YÊU THÍCH</h2>
+                    <div class="mt-4 gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                        <div v-for="p in products" data-aos="fade-up">
+                            <div class="group">
+                                <div class="relative">
+                                    <div class="h-[212px] sm:h-[256px] lg:h-[302px] relative">
+                                        <img :src="p.src02" alt=""
+                                            class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
+                                        <img :src="p.src" alt=""
+                                            class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
+
+                                    </div>
+                                    <div class="p-2">
+                                        <div class="flex gap-1 flex-col md:flex-row md:items-center">
+                                            <p class="font-bold text-primary">{{ p.sale_price }}</p>
+                                            <p class="line-through text-sm">{{ p.price }}</p>
+                                        </div>
+                                        <div class="flex gap-2 my-2">
+                                            <div v-for="v in p.variants" v-tooltip.top="`${v.colorText}`" :class="`bg-[${v.colorCode}]`" class="w-4 h-4 md:w-5 md:h-5 rounded-full transition-all hover:scale-75 outline-offset-4 hover:outline hover:outline-1 hover:outline-[var(--secondary)]"></div>
+                                        </div>
+                                        <p class="text-secondary">{{ p.title }}</p>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
+                                        <span>-25%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <NuxtLink to="/projects">
+                        <div class="btn-secondary group/btn mt-6 md:mt-12 flex gap-2 justify-center items-center">
+                            <span class="pl-2 group-hover/btn:text-white">Xem tất cả</span>
+                            <span
+                                class="material-symbols-outlined transition-all -translate-x-2 group-hover/btn:translate-x-0.5 group-hover/btn:text-white">
                                 chevron_right
                             </span>
                         </div>
@@ -299,6 +360,159 @@ const responsiveOptionsFs = ref([
     }
 
 ]);
+
+
+const products = ref([
+    {
+        id: '',
+        src: '/_nuxt/assets/img/3.png',
+        src02: '/_nuxt/assets/img/2.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/5.png',
+                }
+            },
+            {
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/6.png',
+                }
+            },
+        ]
+    },
+    {
+        id: '',
+        src: '/_nuxt/assets/img/2.png',
+        src02: '/_nuxt/assets/img/7.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/2.png',
+                }
+            },
+
+        ]
+    },
+    {
+        id: '',
+        src: '/_nuxt/assets/img/4.png',
+        src02: '/_nuxt/assets/img/2.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/2.png',
+                }
+            },
+
+        ]
+    },
+    {
+        id: '',
+        src: '/_nuxt/assets/img/5.png',
+        src02: '/_nuxt/assets/img/3.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/2.png',
+                }
+            },
+
+        ]
+    },
+    {
+        id: '',
+        src: '/_nuxt/assets/img/6.png',
+        src02: '/_nuxt/assets/img/7.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/2.png',
+                }
+            },
+
+        ]
+    },
+    {
+        id: '',
+        src: '/_nuxt/assets/img/2.png',
+        src02: '/_nuxt/assets/img/7.png',
+        sale_price: '4.500.000 Đ',
+        price: '5.200.000 Đ',
+        title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        variants: [
+            {
+                colorText: 'Xanh navy',
+                colorCode: '#083488',
+                size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/assets/img/2.png',
+                }
+            },
+
+        ]
+    },
+])
 </script>
 
 <!-- <style>
