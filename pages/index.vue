@@ -85,7 +85,7 @@
         <section class="bg-primary">
             <div class="container ">
                 <div class="relative">
-                    <div class=" absolute px-2 py-1 md:px-4 md:py-2 rounded-full flex items-center gap-2 bg-white">
+                    <div class=" absolute px-2 py-1 md:px-8 md:py-2 rounded-full flex items-center gap-2 bg-white">
                         <h2 class="font-bold uppercase text-base md:text-xl lg:text-3xl">FLASH SALE</h2>
                         <div class="grid grid-cols-3 gap-2">
                             <div class="border border-[var(--secondary) rounded-full p-2 text-center] w-5 h-5 md:w-10 md:h-10 flex items-center justify-center">
