@@ -141,13 +141,13 @@
                             </div>
                             <ul class="w-full flex flex-col justify-start items-center gap-6 mt-8 text-black text-3xl font-bold">
                                 <li>
-                                    <NuxtLink to="/" class="hover:text-[var(--primary-color)]">Services</NuxtLink>
+                                    <NuxtLink to="/" class="hover:text-[var(--primary-color)]" @click="toggleSidebarMenu">Services</NuxtLink>
                                 </li>
                                 <li>
-                                    <NuxtLink to="/projects" class="hover:text-[var(--primary-color)]">Projects</NuxtLink>
+                                    <NuxtLink to="/projects" class="hover:text-[var(--primary-color)]" @click="toggleSidebarMenu">Projects</NuxtLink>
                                 </li>
                                 <li>
-                                    <NuxtLink to="/example" class="hover:text-[var(--primary-color)]">Blogs</NuxtLink>
+                                    <NuxtLink to="/example" class="hover:text-[var(--primary-color)]" @click="toggleSidebarMenu">Blogs</NuxtLink>
                                 </li>
                             </ul>
                         </nav>
