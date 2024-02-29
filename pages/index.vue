@@ -111,27 +111,7 @@
                             itemsContainer: { class: ['mt-[4rem]', 'md:mt-[6rem]'] },
                         }">
                         <template #item="slotProps">
-                            <div data-aos="fade-up" class="mx-2">
-                                <NuxtLink to="/" class="group">
-                                    <div class="relative">
-                                        <div class="h-[212px] sm:h-[256px] lg:h-[302px] relative">
-                                            <img :src="slotProps.data.src02" alt=""
-                                                class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
-                                            <img :src="slotProps.data.src" alt=""
-                                                class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
-
-                                        </div>
-                                        <div class="p-2 bg-white">
-                                            <p class="font-bold mb-1 text-primary">{{ slotProps.data.sale_price }}</p>
-                                            <p class="line-through text-sm">{{ slotProps.data.price }}</p>
-                                        </div>
-                                        <div
-                                            class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
-                                            <span>-25%</span>
-                                        </div>
-                                    </div>
-                                </NuxtLink>
-                            </div>
+                            <ProductCardWithoutColor :product="slotProps.data" />
                         </template>
                         <template #previousicon>
                             <span class="material-symbols-outlined text-2xl lg:text-3xl">
@@ -171,42 +151,8 @@
                 <div class="">
                     <h2 class="font-bold uppercase">Sản PHẨM YÊU THÍCH</h2>
                     <div class="mt-4 gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                        <div v-for="p in products" :key="p.id" data-aos="fade-up">
-                            <div class="group">
-                                <div class="relative">
-                                    <div class="h-[212px] sm:h-[256px] lg:h-[302px] relative">
-                                        <img :src="p.src02" alt=""
-                                            class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
-                                        <img :src="p.src" alt=""
-                                            class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
-                                        <div class="variants-img absolute w-full h-full">
-                                            <img src=""
-                                            class="opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
-                                        </div>
-                                    </div>
-                                    <div class="p-2">
-                                        <div class="flex gap-1 flex-col md:flex-row md:items-center">
-                                            <p class="font-bold text-primary">{{ p.sale_price }}</p>
-                                            <p class="line-through text-sm">{{ p.price }}</p>
-                                        </div>
-                                        <div class="flex gap-2 my-2">
-                                            <div v-for="v in p.variants" :key="v.id" :data-img="v.image.src" @click="changeItemImage(v.image.src)" :style="`background-color: ${v.colorCode}`" 
-                                            class="group/color w-4 h-4 md:w-5 md:h-5 rounded-full transition-all relative hover:scale-75 outline-offset-4 hover:outline hover:outline-1 hover:outline-[var(--secondary)]">
-                                                <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all 
-                                                group-hover/color:visible group-hover/color:scale-125 group-hover/color:bottom-[calc(125%+10px)]
-                                                w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded-sm">
-                                                    <span>{{ v.colorText }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="text-secondary">{{ p.title }}</p>
-                                    </div>
-                                    <div
-                                        class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
-                                        <span>-25%</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div v-for="p in products" :key="p.id" >
+                            <ProductCardWithColor :product="p" />
                         </div>
                     </div>
                 </div>
@@ -380,15 +326,20 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true, 'so_luong' : 120 },
+                    { 'M': true, 'so_luong' : 0 },
+                    { 'L': true, 'so_luong' : 140 }
+                ],
         variants: [
             {
                 id: 'var_01_1',
                 colorText: 'Xanh navy',
                 colorCode: '#3065f5',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { 'S': true, 'so_luong' : 120 },
+                    { 'M': true, 'so_luong' : 0 },
+                    { 'L': true, 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/5.png',
@@ -399,9 +350,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { 'S': true, 'so_luong' : 0 },
+                    { 'M': true, 'so_luong' : 0 },
+                    { 'L': true, 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/6.png',
@@ -416,6 +367,11 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
         variants: [
             {
                 id: 'var_02_1',
@@ -430,6 +386,19 @@ const products = ref([
                     src: '/_nuxt/assets/img/2.png',
                 }
             },
+            {
+                id: 'var_02_2',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/7.png',
+                }
+            },
 
         ]
     },
@@ -440,6 +409,11 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
         variants: [
             {
                 id: 'var_03_1',
@@ -451,7 +425,20 @@ const products = ref([
                     { 'L': true }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/2.png',
+                    src: '/_nuxt/assets/img/5.png',
+                }
+            },
+            {
+                id: 'var_03_2',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/3.png',
                 }
             },
 
@@ -464,6 +451,11 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
         variants: [
             {
                 id: 'var_04_1',
@@ -475,7 +467,20 @@ const products = ref([
                     { 'L': true }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/2.png',
+                    src: '/_nuxt/assets/img/6.png',
+                }
+            },
+            {
+                id: 'var_04_2',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/7.png',
                 }
             },
 
@@ -488,6 +493,11 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
         variants: [
             {
                 id: 'var_05_1',
@@ -499,7 +509,20 @@ const products = ref([
                     { 'L': true }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/2.png',
+                    src: '/_nuxt/assets/img/3.png',
+                }
+            },
+            {
+                id: 'var_05_2',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/6.png',
                 }
             },
 
@@ -512,6 +535,11 @@ const products = ref([
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
+        size: [
+                    { 'S': true },
+                    { 'M': true },
+                    { 'L': true }
+                ],
         variants: [
             {
                 id: 'var_06_1',
@@ -523,6 +551,19 @@ const products = ref([
                     { 'L': true }
                 ],
                 image: {
+                    src: '/_nuxt/assets/img/4.png',
+                }
+            },
+            {
+                id: 'var_06_2',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
+                size: [
+                    { 'S': true },
+                    { 'M': false },
+                    { 'L': true }
+                ],
+                image: {
                     src: '/_nuxt/assets/img/2.png',
                 }
             },
@@ -530,15 +571,6 @@ const products = ref([
         ]
     },
 ])
-
-const dataImg = ref('')
-
-const showVariantImg = ref(false)
-
-const changeItemImage = (val) => {
-    dataImg.value = val
-    showVariantImg.value = true
-}
 </script>
 
 <!-- <style>
@@ -570,14 +602,5 @@ const changeItemImage = (val) => {
 
 }
 
-.tooltip::before {
-    content: " ";
-    position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--secondary-color) transparent transparent transparent;
-  }
+
 </style>
