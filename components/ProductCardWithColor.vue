@@ -2,45 +2,43 @@
     <div data-aos="fade-up">
         <div class="">
             <div class="">
-                <NuxtLink to="/about" :title="product.title" class="hover:text-secondary">
-                    <div class="group h-[212px] sm:h-[256px] lg:h-[302px] relative">
-                        <img :src="product.src02" alt=""
-                            class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
-                        <img :src="product.src" alt=""
-                            class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
-                        <div class="variants-img absolute w-full h-full">
-                            <img :src="dataImg" :class="showVariantImg ? 'opacity-100 block' : 'opacty-0 d-none'"
-                                class="transition-all duration-300 w-full h-full object-cover absolute">
-                        </div>
-                        <div
-                            class="actions absolute translate-y-full invisible transition-all group-hover:translate-y-0 group-hover:visible bottom-[5px] left-1/2 -translate-x-1/2 ">
-                            <div class="flex items-center rounded">
-                                <NuxtLink to="/"
-                                    class="group/btnViewMore relative bg-white border-r flex items-center px-3 py-1 rounded-l hover:bg-secondary">
-                                    <span class="material-symbols-outlined group-hover/btnViewMore:text-white text-lg">
-                                        shopping_cart
-                                    </span>
-                                    <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all
+                <div class="group h-[212px] sm:h-[256px] lg:h-[302px] relative" :title="product.title">
+                    <img :src="product.src02" alt=""
+                        class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
+                    <img :src="product.src" alt=""
+                        class="group-hover:opacity-0 transition-all duration-300 w-full h-full object-cover absolute">
+                    <div class="variants-img absolute w-full h-full">
+                        <img :src="dataImg" :class="showVariantImg ? 'opacity-100 block' : 'opacty-0 d-none'"
+                            class="transition-all duration-300 w-full h-full object-cover absolute">
+                    </div>
+                    <div
+                        class="actions absolute translate-y-full invisible transition-all group-hover:translate-y-0 group-hover:visible bottom-[5px] left-1/2 -translate-x-1/2 ">
+                        <div class="flex items-center rounded">
+                            <button
+                                class="group/btnViewMore relative bg-white border-r flex items-center px-3 py-1 rounded-l hover:bg-secondary">
+                                <span class="material-symbols-outlined group-hover/btnViewMore:text-white text-lg">
+                                    shopping_cart
+                                </span>
+                                <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all
                                                 group-hover/btnViewMore:visible group-hover/btnViewMore:bottom-[calc(100%+5px)]
                                                 w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded">
-                                        <span>Tùy chọn</span>
-                                    </div>
-                                </NuxtLink>
-                                <NuxtLink to="/"
-                                    class="group/btnShowPopup relative bg-white flex items-center px-3 py-1 rounded-r hover:bg-secondary">
-                                    <span class="material-symbols-outlined group-hover/btnShowPopup:text-white text-lg">
-                                        visibility
-                                    </span>
-                                    <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all
+                                    <span>Tùy chọn</span>
+                                </div>
+                            </button>
+                            <button @click="showDialog = true"
+                                class="group/btnShowPopup relative bg-white flex items-center px-3 py-1 rounded-r hover:bg-secondary">
+                                <span class="material-symbols-outlined group-hover/btnShowPopup:text-white text-lg">
+                                    visibility
+                                </span>
+                                <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all
                                                 group-hover/btnShowPopup:visible group-hover/btnShowPopup:bottom-[calc(100%+5px)]
                                                 w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded">
-                                        <span>Xem nhanh</span>
-                                    </div>
-                                </NuxtLink>
-                            </div>
+                                    <span>Xem nhanh</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
-                </NuxtLink>
+                </div>
                 <div class="p-2">
                     <div class="flex gap-1 flex-col md:flex-row md:items-center">
                         <p class="font-bold text-primary">{{ product.sale_price }}</p>
@@ -48,7 +46,7 @@
                     </div>
                     <div class="flex gap-2 my-2">
                         <div v-for="v in product.variants" :key="v.id" :data-img="v.image.src"
-                            @click="changeItemImage(v.image.src)" @mouseover="changeVariantImage(v.image.src)"
+                            @click="changeVariantImage(v.image.src)" @mouseover="changeVariantImage(v.image.src)"
                             @mouseleave="resetVariantImage()" :style="`background-color: ${v.colorCode}`"
                             class="group/color w-4 h-4 md:w-5 md:h-5 rounded-full transition-all relative -outline-offset-4 hover:border-solid hover:border-[1px] hover:border-[var(--secondary)] hover:outline hover:outline-3 hover:outline-white">
                             <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all delay-300
@@ -58,9 +56,9 @@
                             </div>
                         </div>
                     </div>
-                    <NuxtLink to="/" :title="product.title">
-                        <p class=" line-clamp-2">{{ product.title }}</p>
-                    </NuxtLink>
+                    <a href="/">
+                        <p class="line-clamp-2">{{ product.title }}</p>
+                    </a>
                 </div>
                 <div
                     class="absolute top-2 left-2 rounded p-1 md:py-1 md:px-3 bg-[#B44726] text-white font-bold text-[10px] sm:text-xs md:text-sm">
@@ -68,6 +66,27 @@
                 </div>
             </div>
         </div>
+        <Dialog :visible="showDialog" modal header="Edit Profile" :style="{ width: '25rem' }">
+            <template #header>
+                <div class="inline-flex align-items-center justify-content-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                </div>
+            </template>
+            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <div class="flex align-items-center gap-3 mb-3">
+                <label for="username" class="font-semibold w-6rem">Username</label>
+                <InputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-3 mb-2">
+                <label for="email" class="font-semibold w-6rem">Email</label>
+                <InputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <template #footer>
+                <Button label="Cancel" text severity="secondary" @click="showDialog = false" autofocus />
+                <Button label="Save" outlined severity="secondary" @click="showDialog = false" autofocus />
+            </template>
+        </Dialog>
     </div>
 </template>
 
@@ -88,6 +107,10 @@ const resetVariantImage = () => {
     dataImg.value = ''
     showVariantImg.value = false
 }
+
+const showDialog = ref(false)
+
+
 </script>
 
 <style scoped>
@@ -101,4 +124,5 @@ const resetVariantImage = () => {
     border-width: 5px;
     border-style: solid;
     border-color: var(--secondary-color) transparent transparent transparent;
-}</style>
+}
+</style>
