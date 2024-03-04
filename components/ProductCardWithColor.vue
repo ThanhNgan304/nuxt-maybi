@@ -66,25 +66,58 @@
                 </div>
             </div>
         </div>
-        <Dialog :visible="showDialog" modal header="Edit Profile" :style="{ width: '25rem' }">
-            <template #header>
-                <div class="inline-flex align-items-center justify-content-center gap-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold white-space-nowrap">Amy Elsner</span>
+        <Dialog :visible="showDialog" modal :style="{ width: '70%' }">
+            <div class="grid grid-cols-2 gap-4">
+                <div></div>
+                <div>
+                    <h3 class="font-bold text-[#2f80ed] mb-2">{{ product.title }}</h3>
+                    <p class="">Thương hiệu: Maybi | Mã sản phẩm: {{ product.id }}</p>
+                    <p class="font-bold mt-2">Màu sắc:</p>
+                    <div class="flex gap-2 my-2">
+                        <div v-for="v in product.variants" :key="v.id" :data-img="v.image.src"
+                            @click="changeVariantImage(v.image.src)" @mouseover="changeVariantImage(v.image.src)"
+                            @mouseleave="resetVariantImage()"
+                            :style="{ background: `url(${v.image.src}) center no-repeat`, backgroundSize: 'cover' }"
+                            class="group/color w-4 h-4 md:w-8 md:h-8 rounded-full transition-all relative -outline-offset-4 hover:border-solid hover:border-[1px] hover:border-[var(--secondary)] hover:outline hover:outline-3 hover:outline-white">
+                            <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all delay-300
+                                                group-hover/color:visible group-hover/color:bottom-[calc(125%+5px)]
+                                                w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded">
+                                <span>{{ v.colorText }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-bold mt-3">Kích thước:</p>
+                    <div class="flex gap-2 my-2">
+                        <div v-for="size in product.size" class="rounded border px-2 py-1 cursor-pointer"
+                            :class="selectedSize === size.name ? 'border-black' : ''"
+                            @click="{ selectedSize = size.name; console.log(selectedSize) }">
+                            <span>{{ size.name }}</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="quantity-num flex items-center">
+                            <InputNumber v-model="quantity" showButtons buttonLayout="horizontal" class="rounded border"
+                                :min="1" :max="10">
+                                <template #incrementbuttonicon>
+                                    <span class="material-symbols-outlined p-2">
+                                        add
+                                    </span>
+                                </template>
+                                <template #decrementbuttonicon>
+                                    <span class="material-symbols-outlined p-2">
+                                        remove
+                                    </span>
+                                </template>
+                            </InputNumber>
+                        </div>
+                        <button class="btn-secondary hover:text-white">
+                            Thêm vào giỏ
+                        </button>
+                    </div>
                 </div>
-            </template>
-            <span class="p-text-secondary block mb-5">Update your information.</span>
-            <div class="flex align-items-center gap-3 mb-3">
-                <label for="username" class="font-semibold w-6rem">Username</label>
-                <InputText id="username" class="flex-auto" autocomplete="off" />
-            </div>
-            <div class="flex align-items-center gap-3 mb-2">
-                <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText id="email" class="flex-auto" autocomplete="off" />
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="showDialog = false" autofocus />
-                <Button label="Save" outlined severity="secondary" @click="showDialog = false" autofocus />
             </template>
         </Dialog>
     </div>
@@ -110,10 +143,13 @@ const resetVariantImage = () => {
 
 const showDialog = ref(false)
 
+const selectedSize = ref('S')
+
+const quantity = ref(1)
 
 </script>
 
-<style scoped>
+<style lang="postcss">
 .tooltip::before {
     content: " ";
     position: absolute;
@@ -124,5 +160,14 @@ const showDialog = ref(false)
     border-width: 5px;
     border-style: solid;
     border-color: var(--secondary-color) transparent transparent transparent;
+}
+
+.quantity-num {
+    input {
+        width: 5rem;
+        text-align: center;
+        border-left: solid 1px #cccc;
+        border-right: solid 1px #cccc;
+    }
 }
 </style>

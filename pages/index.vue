@@ -327,9 +327,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true, 'so_luong' : 120 },
-                    { 'M': true, 'so_luong' : 0 },
-                    { 'L': true, 'so_luong' : 140 }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -337,9 +337,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#3065f5',
                 size: [
-                    { 'S': true, 'so_luong' : 120 },
-                    { 'M': true, 'so_luong' : 0 },
-                    { 'L': true, 'so_luong' : 100 }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/5.png',
@@ -350,9 +350,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true, 'so_luong' : 0 },
-                    { 'M': true, 'so_luong' : 0 },
-                    { 'L': true, 'so_luong' : 40 }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/6.png',
@@ -368,9 +368,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -378,9 +378,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#083488',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/2.png',
@@ -391,9 +391,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/7.png',
@@ -410,9 +410,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -420,9 +420,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#083488',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/5.png',
@@ -433,9 +433,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/3.png',
@@ -452,9 +452,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -462,9 +462,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#083488',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/6.png',
@@ -475,9 +475,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/7.png',
@@ -494,9 +494,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -504,9 +504,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#083488',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/3.png',
@@ -517,9 +517,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/6.png',
@@ -536,9 +536,9 @@ const products = ref([
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 140 }
                 ],
         variants: [
             {
@@ -546,9 +546,9 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#083488',
                 size: [
-                    { 'S': true },
-                    { 'M': true },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 100 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/4.png',
@@ -559,9 +559,9 @@ const products = ref([
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { 'S': true },
-                    { 'M': false },
-                    { 'L': true }
+                    { name: 'S', 'so_luong' : 0 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 40 }
                 ],
                 image: {
                     src: '/_nuxt/assets/img/2.png',
