@@ -66,19 +66,42 @@
                 </div>
             </div>
         </div>
-        <Dialog :visible="showDialog" modal :style="{ width: '70%' }">
+        <!-- somehow button close default don't work so I add my close button to header and set ":closable = false" to hide button close default  -->
+        <Dialog :visible="showDialog" :closable="false"  modal :style="{ width: '70%' }"
+        :pt="{
+            header: { class: ['p-2', 'flex', 'justify-end']}
+        }">
+            <template #header>
+                <button @click="showDialog = false">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </template>
             <div class="grid grid-cols-2 gap-4">
-                <div></div>
+                <div>
+                    <Galleria :value="product.variants" :activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="3">
+
+                        <template #item="slotProps">
+                            <img :src="slotProps.item.image.src" alt="" style="width: 100%;" />
+                        </template>
+
+                        <template #thumbnail="slotProps">
+                            <img :src="slotProps.item.image.src" alt="" style="width: auto; height: 100px" />
+                        </template>
+                    </Galleria>
+
+                </div>
                 <div>
                     <h3 class="font-bold text-[#2f80ed] mb-2">{{ product.title }}</h3>
                     <p class="">Thương hiệu: Maybi | Mã sản phẩm: {{ product.id }}</p>
                     <p class="font-bold mt-2">Màu sắc:</p>
                     <div class="flex gap-2 my-2">
-                        <div v-for="v in product.variants" :key="v.id" :data-img="v.image.src"
-                            @click="changeVariantImage(v.image.src)" @mouseover="changeVariantImage(v.image.src)"
-                            @mouseleave="resetVariantImage()"
+                        <div v-for="(v, index) in product.variants" :key="v.id" :data-img="v.image.src"
+                            @click="activeIndex = index"
                             :style="{ background: `url(${v.image.src}) center no-repeat`, backgroundSize: 'cover' }"
-                            class="group/color w-4 h-4 md:w-8 md:h-8 rounded-full transition-all relative -outline-offset-4 hover:border-solid hover:border-[1px] hover:border-[var(--secondary)] hover:outline hover:outline-3 hover:outline-white">
+                            class="color-item group/color w-4 h-4 md:w-8 md:h-8 rounded-full transition-all relative -outline-offset-4 hover:border-solid hover:border-[1px] hover:border-[var(--secondary)] hover:outline hover:outline-3 hover:outline-white"
+                            :class="activeIndex === index ? 'active' : ''">
                             <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all delay-300
                                                 group-hover/color:visible group-hover/color:bottom-[calc(125%+5px)]
                                                 w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded">
@@ -98,11 +121,13 @@
                         <div class="quantity-num flex items-center">
                             <InputNumber v-model="quantity" showButtons buttonLayout="horizontal" class="rounded border"
                                 :min="1" :max="10">
+
                                 <template #incrementbuttonicon>
                                     <span class="material-symbols-outlined p-2">
                                         add
                                     </span>
                                 </template>
+
                                 <template #decrementbuttonicon>
                                     <span class="material-symbols-outlined p-2">
                                         remove
@@ -116,6 +141,7 @@
                     </div>
                 </div>
             </div>
+
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="showDialog = false" autofocus />
             </template>
@@ -147,6 +173,18 @@ const selectedSize = ref('S')
 
 const quantity = ref(1)
 
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+const activeIndex = ref(0)
 </script>
 
 <style lang="postcss">
@@ -168,6 +206,16 @@ const quantity = ref(1)
         text-align: center;
         border-left: solid 1px #cccc;
         border-right: solid 1px #cccc;
+    }
+}
+
+.color-item {
+    &.active {
+        border: solid 1px var(--secondary-color);
+        outline-style: solid;
+        outline-offset: -4px;
+        outline-width: 3px;
+        outline-color: white;
     }
 }
 </style>

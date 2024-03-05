@@ -337,7 +337,7 @@ const products = ref([
                 colorText: 'Xanh navy',
                 colorCode: '#3065f5',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
+                    { name: 'S', 'so_luong' : 100 },
                     { name: 'M', 'so_luong' : 0 },
                     { name: 'L', 'so_luong' : 100 }
                 ],
@@ -356,6 +356,32 @@ const products = ref([
                 ],
                 image: {
                     src: '/_nuxt/assets/img/6.png',
+                }
+            },
+            {
+                id: 'var_01_3',
+                colorText: 'Hồng',
+                colorCode: '#ff73da',
+                size: [
+                    { name: 'S', 'so_luong' : 10 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 0 }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/7.png',
+                }
+            },
+            {
+                id: 'var_01_4',
+                colorText: 'Đỏ',
+                colorCode: 'rgb(235 37 37)',
+                size: [
+                    { name: 'S', 'so_luong' : 10 },
+                    { name: 'M', 'so_luong' : 0 },
+                    { name: 'L', 'so_luong' : 0 }
+                ],
+                image: {
+                    src: '/_nuxt/assets/img/2.png',
                 }
             },
         ]
