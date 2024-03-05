@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto py-20 overflow-hidden">
         <Head>
-            <Title>Maskcodex | {{ product.title }}</Title>
+            <Title>Maybi | {{ product.title }}</Title>
             <Meta name="description" :content="product.description" />
         </Head>
         <ProjectDetail :project="product" />

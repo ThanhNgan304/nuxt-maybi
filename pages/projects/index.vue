@@ -18,7 +18,7 @@
 const { data: products } = await useFetch('https://fakestoreapi.com/products')
 
 useHead({
-    title: 'Maskcodex | Projects'
+    title: 'Maybi | Projects'
 })
 
 const { $anime } = useNuxtApp()

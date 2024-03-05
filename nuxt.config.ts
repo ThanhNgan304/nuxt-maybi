@@ -13,10 +13,10 @@ export default defineNuxtConfig({
   css: ['primevue/resources/themes/aura-light-green/theme.css'],
   app: {
     head: {
-      title: 'MaskCodex - Enterprise Software Outsourcing',
+      title: 'Maybi - Test Nuxt 3 chút',
       meta: [
         { charset: 'utf-8' },
-        { hid: 'description', name: 'description', content: 'MaskCodex is a well-known technology company in Vietnam. The strengths focus mainly on designing and developing Websites, Landing pages, Mobile applications, and Outsourcing.' },
+        { hid: 'description', name: 'description', content: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed enim debitis illo, quas, amet omnis eum consequuntur repudiandae obcaecati iste ipsum repellat ea? Quidem in quis maxime qui, sapiente nulla.' },
       ],
       link: [
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined'},
