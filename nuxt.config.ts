@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@hypernym/nuxt-anime',
     'nuxt-primevue',
-    'nuxt-aos'
+    'nuxt-aos',
+    'nuxt-medusa'
   ],
   primevue: {
    

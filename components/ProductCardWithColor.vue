@@ -1,7 +1,7 @@
 <template>
     <div data-aos="fade-up">
         <div class="">
-            <div class="">
+            <div class="relative">
                 <div class="group h-[212px] sm:h-[256px] lg:h-[302px] relative" :title="product.title">
                     <img :src="product.src02" alt=""
                         class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
