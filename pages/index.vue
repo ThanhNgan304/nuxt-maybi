@@ -1,12 +1,12 @@
 <template>
     <div>
         <section>
-            <Carousel :value="images" :numVisible="1" :numScroll="1" :showNavigators="false" circular :allowAutoplay="true"
-                :autoplayInterval="4000" :pt="{
-                    content: { class: 'relative' },
-                    indicators: { class: ['absolute', 'bottom-4', 'left-2/4', '-translate-x-2/4'] },
-                    indicatorButton: { class: ['bg-white', 'w-2', '2xl:w-3', 'h-2', '2xl:h-3', 'rounded-full'] }
-                }">
+            <Carousel :value="images" :numVisible="1" :numScroll="1" :showNavigators="false" circular
+                :allowAutoplay="true" :autoplayInterval="4000" :pt="{
+                content: { class: 'relative' },
+                indicators: { class: ['absolute', 'bottom-4', 'left-2/4', '-translate-x-2/4'] },
+                indicatorButton: { class: ['bg-white', 'w-2', '2xl:w-3', 'h-2', '2xl:h-3', 'rounded-full'] }
+            }">
                 <template #item="slotProps">
                     <div class="h-[500px] sm:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px]">
                         <img :src="slotProps.data.src" alt=""
@@ -40,11 +40,12 @@
                     <h2 class="font-bold uppercase absolute">MUA THEO THỂ LOẠI</h2>
                     <Carousel :value="categories" :numVisible="5" :numScroll="1" :responsiveOptions="responsiveOptions"
                         :showNavigators="true" :showIndicators="false" circular :allowAutoplay="false" :pt="{
-                            container: { class: 'relative' },
-                            previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary',] },
-                            nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary',] },
-                            itemsContainer: { class: 'mt-[4rem]' },
-                        }">
+                container: { class: 'relative' },
+                previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary',] },
+                nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary',] },
+                itemsContainer: { class: 'mt-[4rem]' },
+            }">
+
                         <template #item="slotProps">
                             <div data-aos="fade-up" class="mx-4">
                                 <NuxtLink to="/" class="group">
@@ -57,11 +58,13 @@
                                 </NuxtLink>
                             </div>
                         </template>
+
                         <template #previousicon>
                             <span class="material-symbols-outlined text-2xl lg:text-3xl">
                                 arrow_left_alt
                             </span>
                         </template>
+
                         <template #nexticon>
                             <span class="material-symbols-outlined  text-2xl lg:text-3xl">
                                 arrow_right_alt
@@ -103,21 +106,25 @@
                         </div>
                     </div>
 
-                    <Carousel :value="flashSales" :numVisible="6" :numScroll="1" :responsiveOptions="responsiveOptionsFs"
-                        :showNavigators="true" :showIndicators="false" circular :allowAutoplay="false" :pt="{
-                            container: { class: 'relative' },
-                            previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'text-white', 'hover:text-secondary',] },
-                            nextButton: { class: ['absolute', 'top-0', 'right-0', 'text-white', 'hover:text-secondary',] },
-                            itemsContainer: { class: ['mt-[4rem]', 'md:mt-[6rem]'] },
-                        }">
+                    <Carousel :value="flashSales" :numVisible="6" :numScroll="1"
+                        :responsiveOptions="responsiveOptionsFs" :showNavigators="true" :showIndicators="false" circular
+                        :allowAutoplay="false" :pt="{
+                container: { class: 'relative' },
+                previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'text-white', 'hover:text-secondary',] },
+                nextButton: { class: ['absolute', 'top-0', 'right-0', 'text-white', 'hover:text-secondary',] },
+                itemsContainer: { class: ['mt-[4rem]', 'md:mt-[6rem]'] },
+            }">
+
                         <template #item="slotProps">
                             <ProductCardWithoutColor :product="slotProps.data" />
                         </template>
+
                         <template #previousicon>
                             <span class="material-symbols-outlined text-2xl lg:text-3xl">
                                 arrow_left_alt
                             </span>
                         </template>
+
                         <template #nexticon>
                             <span class="material-symbols-outlined  text-2xl lg:text-3xl">
                                 arrow_right_alt
@@ -151,7 +158,7 @@
                 <div class="">
                     <h2 class="font-bold uppercase">Sản PHẨM YÊU THÍCH</h2>
                     <div class="mt-4 gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                        <div v-for="p in products" :key="p.id" >
+                        <div v-for="p in products" :key="p.id">
                             <ProductCardWithColor :product="p" />
                         </div>
                     </div>
@@ -321,108 +328,109 @@ const responsiveOptionsFs = ref([
 const products = ref([
     {
         id: '1',
-        src: '/_nuxt/assets/img/3.png',
-        src02: '/_nuxt/assets/img/2.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_01_1',
-                colorText: 'Xanh navy',
-                colorCode: '#3065f5',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 100 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/5.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_01_2',
-                colorText: 'Xanh phối',
-                colorCode: '#225c48',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/6.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
                 }
             },
             {
                 id: 'var_01_3',
-                colorText: 'Hồng',
-                colorCode: '#ff73da',
+                colorText: 'Xanh phối',
+                colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 10 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 0 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/7.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
-            {
-                id: 'var_01_4',
-                colorText: 'Đỏ',
-                colorCode: 'rgb(235 37 37)',
-                size: [
-                    { name: 'S', 'so_luong' : 10 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 0 }
-                ],
-                image: {
-                    src: '/_nuxt/assets/img/2.png',
-                }
-            },
+
         ]
     },
     {
         id: '2',
-        src: '/_nuxt/assets/img/2.png',
-        src02: '/_nuxt/assets/img/7.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_02_1',
-                colorText: 'Xanh navy',
-                colorCode: '#083488',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/2.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_02_2',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
+                size: [
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
+                ],
+                image: {
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
+                }
+            },
+            {
+                id: 'var_02_3',
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/7.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
 
@@ -430,41 +438,54 @@ const products = ref([
     },
     {
         id: '3',
-        src: '/_nuxt/assets/img/4.png',
-        src02: '/_nuxt/assets/img/2.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_03_1',
-                colorText: 'Xanh navy',
-                colorCode: '#083488',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/5.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_03_2',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
+                size: [
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
+                ],
+                image: {
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
+                }
+            },
+            {
+                id: 'var_03_3',
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/3.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
 
@@ -472,41 +493,54 @@ const products = ref([
     },
     {
         id: '4',
-        src: '/_nuxt/assets/img/5.png',
-        src02: '/_nuxt/assets/img/3.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_04_1',
-                colorText: 'Xanh navy',
-                colorCode: '#083488',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/6.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_04_2',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
+                size: [
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
+                ],
+                image: {
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
+                }
+            },
+            {
+                id: 'var_04_3',
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/7.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
 
@@ -514,41 +548,54 @@ const products = ref([
     },
     {
         id: '5',
-        src: '/_nuxt/assets/img/6.png',
-        src02: '/_nuxt/assets/img/7.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_05_1',
-                colorText: 'Xanh navy',
-                colorCode: '#083488',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/3.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_05_2',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
+                size: [
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
+                ],
+                image: {
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
+                }
+            },
+            {
+                id: 'var_05_3',
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/6.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
 
@@ -556,41 +603,54 @@ const products = ref([
     },
     {
         id: '6',
-        src: '/_nuxt/assets/img/2.png',
-        src02: '/_nuxt/assets/img/7.png',
+        src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
+        src02: 'https://product.hstatic.net/1000341902/product/dsc03530_fa690731aa0e4fccb9c773e93833fb5e_1024x1024.jpg',
         sale_price: '4.500.000 Đ',
         price: '5.200.000 Đ',
         title: 'Áo liền quần nữ Thắt lưng Tương phản Mesh Chia tôn vóc dáng.',
         size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 140 }
-                ],
+            { name: 'S', 'so_luong': 120 },
+            { name: 'M', 'so_luong': 0 },
+            { name: 'L', 'so_luong': 140 }
+        ],
         variants: [
             {
                 id: 'var_06_1',
-                colorText: 'Xanh navy',
-                colorCode: '#083488',
+                colorText: 'Đỏ',
+                colorCode: '#a52a22',
                 size: [
-                    { name: 'S', 'so_luong' : 120 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 100 }
+                    { name: 'S', 'so_luong': 100 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 100 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/4.png',
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03538_3d31eec3a9ea45e48da1dc87d45efe67_large.jpg',
                 }
             },
             {
                 id: 'var_06_2',
+                colorText: 'Vàng phối',
+                colorCode: '#f8f5aa',
+                size: [
+                    { name: 'S', 'so_luong': 0 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 40 }
+                ],
+                image: {
+                    src: 'https://product.hstatic.net/1000341902/product/dsc03575_18f6905c65244268b3235260fae03739.jpg',
+                }
+            },
+            {
+                id: 'var_06_3',
                 colorText: 'Xanh phối',
                 colorCode: '#225c48',
                 size: [
-                    { name: 'S', 'so_luong' : 0 },
-                    { name: 'M', 'so_luong' : 0 },
-                    { name: 'L', 'so_luong' : 40 }
+                    { name: 'S', 'so_luong': 10 },
+                    { name: 'M', 'so_luong': 0 },
+                    { name: 'L', 'so_luong': 0 }
                 ],
                 image: {
-                    src: '/_nuxt/assets/img/2.png',
+                    src: 'https://product.hstatic.net/1000341902/product/z5013768690355_aaec6c3baf7986b234a2e0115a19bfd6_34371c2d8ff74d52a856523770b2f3c9.jpg',
                 }
             },
 
@@ -627,6 +687,4 @@ const products = ref([
     }
 
 }
-
-
 </style>
