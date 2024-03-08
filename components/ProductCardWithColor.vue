@@ -2,7 +2,7 @@
     <div data-aos="fade-up">
         <div class="">
             <div class="relative">
-                <div class="group h-[212px] sm:h-[256px] lg:h-[302px] relative" :title="product.title">
+                <div class="group relative w-full h-auto" style="aspect-ratio: 3/4;" :title="product.title">
                     <img :src="product.src02" alt=""
                         class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
                     <img :src="product.src" alt=""
@@ -67,10 +67,9 @@
             </div>
         </div>
         <!-- somehow button close default don't work so I add my close button to header and set ":closable = false" to hide button close default  -->
-        <Dialog :visible="showDialog" :closable="false"  modal :style="{ width: '70%' }"
-        :pt="{
-            header: { class: ['p-2', 'flex', 'justify-end']}
-        }">
+        <Dialog :visible="showDialog" :closable="false" modal :style="{ width: '70%' }" :pt="{
+                    header: { class: ['p-2', 'flex', 'justify-end'] }
+                }">
             <template #header>
                 <button @click="showDialog = false">
                     <span class="material-symbols-outlined">
@@ -78,30 +77,36 @@
                     </span>
                 </button>
             </template>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <Galleria :value="product.variants" :activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="3">
+            <div class="grid grid-cols-5 gap-4">
+                <div class="col-span-2">
+                    <!-- issue: galleria of primvue-nuxt not completely compatible ==> solution: add vue3-carousel-nuxt module to replace  -->
+                    <MyCarousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
+                        <MySlide v-for="v in product.variants" :key="v.id">
+                            <div class="carousel__item w-full h-auto" style="aspect-ratio: 4/5;">
+                                <img :src="v.image.src" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+                            </div>
+                        </MySlide>
+                    </MyCarousel>
 
-                        <template #item="slotProps">
-                            <img :src="slotProps.item.image.src" alt="" style="width: 100%;" />
-                        </template>
-
-                        <template #thumbnail="slotProps">
-                            <img :src="slotProps.item.image.src" alt="" style="width: auto; height: 100px" />
-                        </template>
-                    </Galleria>
-
+                    <MyCarousel id="thumbnails" :items-to-show="4" :wrap-around="true" v-model="currentSlide"
+                        ref="carousel">
+                        <MySlide v-for="(v, index) in product.variants" :key="v.id">
+                            <div class="carousel__item" @click="slideTo(index)">
+                                <img :src="v.image.src" alt=""/>
+                            </div>
+                        </MySlide>
+                    </MyCarousel>
                 </div>
-                <div>
+                <div class="col-span-3">
                     <h3 class="font-bold text-[#2f80ed] mb-2">{{ product.title }}</h3>
                     <p class="">Thương hiệu: Maybi | Mã sản phẩm: {{ product.id }}</p>
                     <p class="font-bold mt-2">Màu sắc:</p>
                     <div class="flex gap-2 my-2">
                         <div v-for="(v, index) in product.variants" :key="v.id" :data-img="v.image.src"
-                            @click="activeIndex = index"
+                            @click="slideTo(index)"
                             :style="{ background: `url(${v.image.src}) center no-repeat`, backgroundSize: 'cover' }"
                             class="color-item group/color w-4 h-4 md:w-8 md:h-8 rounded-full transition-all relative -outline-offset-4 hover:border-solid hover:border-[1px] hover:border-[var(--secondary)] hover:outline hover:outline-3 hover:outline-white"
-                            :class="activeIndex === index ? 'active' : ''">
+                            :class="currentSlide === index ? 'active' : ''">
                             <div class="tooltip absolute bottom-full -translate-x-1/2 left-1/2 invisible transition-all delay-300
                                                 group-hover/color:visible group-hover/color:bottom-[calc(125%+5px)]
                                                 w-max bg-secondary text-white text-xs md:text-sm px-2 py-1 rounded">
@@ -173,18 +178,26 @@ const selectedSize = ref('S')
 
 const quantity = ref(1)
 
-const responsiveOptions = ref([
-    {
-        breakpoint: '1300px',
-        numVisible: 3
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1
-    }
-]);
+// const responsiveOptions = ref([
+//     {
+//         breakpoint: '1300px',
+//         numVisible: 3
+//     },
+//     {
+//         breakpoint: '575px',
+//         numVisible: 1
+//     }
+// ]);
 
-const activeIndex = ref(0)
+// const activeIndex = ref(0)
+
+const currentSlide = ref(0)
+
+const slideTo = (val) => {
+    currentSlide.value = val
+}
+
+
 </script>
 
 <style lang="postcss">

@@ -157,7 +157,7 @@
             <div class="container">
                 <div class="">
                     <h2 class="font-bold uppercase">Sản PHẨM YÊU THÍCH</h2>
-                    <div class="mt-4 gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                    <div class="mt-4 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         <div v-for="p in products" :key="p.id">
                             <ProductCardWithColor :product="p" />
                         </div>

@@ -6,10 +6,14 @@ export default defineNuxtConfig({
     '@hypernym/nuxt-anime',
     'nuxt-primevue',
     'nuxt-aos',
-    'nuxt-medusa'
+    'nuxt-medusa',
+    'vue3-carousel-nuxt'
   ],
   primevue: {
    
+  },
+  carousel: {
+    prefix: 'My'
   },
   css: ['primevue/resources/themes/aura-light-green/theme.css'],
   app: {

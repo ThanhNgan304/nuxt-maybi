@@ -2,7 +2,7 @@
     <div data-aos="fade-up" class="mx-2">
         <NuxtLink to="/" class="group">
             <div class="relative">
-                <div class="h-[212px] sm:h-[256px] lg:h-[302px] relative">
+                <div class="relative w-full h-auto" style="aspect-ratio: 3/4;">
                     <img :src="product.src02" alt=""
                         class="opacity-1 group-hover:opacity-1 transition-all duration-300 w-full h-full object-cover absolute">
                     <img :src="product.src" alt=""

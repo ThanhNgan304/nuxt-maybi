@@ -23,7 +23,7 @@
                             </label>
                         </li>
                         <li class="h-">
-                            <NuxtLink to="/cart" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
+                            <NuxtLink to="" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
                                 <span class="d-none sm:inline">Giỏ hàng</span>
                                 <span class="material-symbols-outlined text-xl sm:text-2xl">
                                     local_mall
@@ -31,7 +31,7 @@
                             </NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/account" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
+                            <NuxtLink to="" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
                                 <span class="d-none sm:inline">Tài khoản</span>
                                 <span class="material-symbols-outlined text-xl sm:text-2xl">
                                     account_circle
@@ -42,7 +42,7 @@
 
                     <ul class="flex items-center gap-2 sm:gap-4 text-black text-[15px]">
                         <li>
-                            <NuxtLink to="/account"
+                            <NuxtLink to=""
                                 class="hover:text-[var(--primary-color)] flex items-center border-l border-black pl-2 sm:pl-4">
                                 <span class="material-symbols-outlined text-xl sm:text-2xl">
                                     globe_uk
@@ -88,7 +88,7 @@
                         <div class="flex items-center w-full sm:mx-8 md:mx-16 xl:mx-32 2xl:mx-48">
                             <IconField iconPosition="right" class="w-full flex items-center gap-1 rounded-full
                             bg-white border-[1px] border-[##A1A1A1] py-[5px] px-3">
-                                <InputText v-model="value1" placeholder="Tìm kiếm"
+                                <InputText placeholder="Tìm kiếm"
                                     class="bg-transparent w-full placeholder-black font-ibm border-transparent outline-none shadow-none" />
 
                                 <InputIcon>
@@ -101,7 +101,7 @@
                         <div class="flex items-center flex-shrink-0">
                             <ul class="flex items-center gap-4 lg:gap-8 text-black text-[15px]">
                                 <li class="d-none sm:block">
-                                    <NuxtLink to="/cart" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
+                                    <NuxtLink to="" class="hover:text-[var(--primary-color)] flex gap-1 items-center">
                                         <span class="d-none sm:inline">Giỏ hàng</span>
                                         <span class="material-symbols-outlined">
                                             local_mall
@@ -109,7 +109,7 @@
                                     </NuxtLink>
                                 </li>
                                 <li class="d-none sm:block">
-                                    <NuxtLink to="/account"
+                                    <NuxtLink to=""
                                         class="hover:text-[var(--primary-color)] flex gap-1 items-center">
                                         <span class="d-none sm:inline">Tài khoản</span>
                                         <span class="material-symbols-outlined">
@@ -174,7 +174,6 @@ const showSidebarMenu = ref(false)
 const toggleSidebarMenu = () => {
 
     showSidebarMenu.value = !showSidebarMenu.value
-    console.log(showSidebarMenu.value)
 }
 </script>
 
