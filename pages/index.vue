@@ -668,6 +668,9 @@ const products = ref([
 
 
 <style lang="postcss">
+.p-carousel {
+    touch-action: pan-y;
+}
 .p-carousel-indicator {
 
     &.p-highlight {
