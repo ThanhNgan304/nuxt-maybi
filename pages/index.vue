@@ -669,7 +669,7 @@ const products = ref([
 
 <style lang="postcss">
 .p-carousel {
-    touch-action: pan-y;
+    touch-action: auto;
 }
 .p-carousel-indicator {
 
