@@ -4,7 +4,7 @@
     <div class="container mx-auto py-20 bg-black">
         <h1 class="title">Exxaaaapleee</h1>
         <TextAnime />
-        <div>{{ products }}</div>
+        <!-- <div>{{ products }}</div> -->
     </div>
 </template>
   
@@ -17,7 +17,7 @@ onMounted(() => {
 
 const client = useMedusaClient();
 
-const { products } = await client.products.list();
+// const { products } = await client.products.list();
 
 
 </script>
