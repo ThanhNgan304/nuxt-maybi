@@ -1,19 +1,21 @@
 <template>
     <div>
         <section>
-            <Carousel :value="images" :numVisible="1" :numScroll="1" :showNavigators="false" circular
-                :allowAutoplay="true" :autoplayInterval="4000" :pt="{
-                content: { class: 'relative' },
-                indicators: { class: ['absolute', 'bottom-4', 'left-2/4', '-translate-x-2/4'] },
-                indicatorButton: { class: ['bg-white', 'w-2', '2xl:w-3', 'h-2', '2xl:h-3', 'rounded-full'] }
-            }">
-                <template #item="slotProps">
-                    <div class="h-[500px] sm:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px]">
-                        <img :src="slotProps.data.src" alt=""
-                            class="h-[500px] sm:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px] w-full object-cover" />
-                    </div>
-                </template>
-            </Carousel>
+            <div ref="carouselWrapper">
+                <Carousel :value="images" :numVisible="1" :numScroll="1" :showNavigators="false" circular
+                    :allowAutoplay="true" :autoplayInterval="4000" :pt="{
+                    content: { class: 'relative' },
+                    indicators: { class: ['absolute', 'bottom-4', 'left-2/4', '-translate-x-2/4'] },
+                    indicatorButton: { class: ['bg-white', 'w-2', '2xl:w-3', 'h-2', '2xl:h-3', 'rounded-full'] }
+                }">
+                    <template #item="slotProps">
+                        <div class="h-[500px] sm:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px]">
+                            <img :src="slotProps.data.src" alt=""
+                                class="h-[500px] sm:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px] w-full object-cover" />
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
         </section>
         <section>
             <div class="container">
@@ -40,11 +42,11 @@
                     <h2 class="font-bold uppercase absolute">MUA THEO THỂ LOẠI</h2>
                     <Carousel :value="categories" :numVisible="5" :numScroll="1" :responsiveOptions="responsiveOptions"
                         :showNavigators="true" :showIndicators="false" circular :allowAutoplay="false" :pt="{
-                container: { class: 'relative' },
-                previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary',] },
-                nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary',] },
-                itemsContainer: { class: 'mt-[4rem]' },
-            }">
+                    container: { class: 'relative' },
+                    previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'hover:text-primary',] },
+                    nextButton: { class: ['absolute', 'top-0', 'right-0', 'hover:text-primary',] },
+                    itemsContainer: { class: 'mt-[4rem]' },
+                }">
 
                         <template #item="slotProps">
                             <div data-aos="fade-up" class="mx-4">
@@ -109,11 +111,11 @@
                     <Carousel :value="flashSales" :numVisible="6" :numScroll="1"
                         :responsiveOptions="responsiveOptionsFs" :showNavigators="true" :showIndicators="false" circular
                         :allowAutoplay="false" :pt="{
-                container: { class: 'relative' },
-                previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'text-white', 'hover:text-secondary',] },
-                nextButton: { class: ['absolute', 'top-0', 'right-0', 'text-white', 'hover:text-secondary',] },
-                itemsContainer: { class: ['mt-[4rem]', 'md:mt-[6rem]'] },
-            }">
+                    container: { class: 'relative' },
+                    previousButton: { class: ['absolute', 'top-0', 'right-[2rem]', 'text-white', 'hover:text-secondary',] },
+                    nextButton: { class: ['absolute', 'top-0', 'right-0', 'text-white', 'hover:text-secondary',] },
+                    itemsContainer: { class: ['mt-[4rem]', 'md:mt-[6rem]'] },
+                }">
 
                         <template #item="slotProps">
                             <ProductCardWithoutColor :product="slotProps.data" />
@@ -656,7 +658,8 @@ const products = ref([
 
         ]
     },
-])
+]);
+
 </script>
 
 <!-- <style>
@@ -671,6 +674,7 @@ const products = ref([
 .p-carousel {
     touch-action: auto;
 }
+
 .p-carousel-indicator {
 
     &.p-highlight {

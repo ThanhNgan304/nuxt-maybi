@@ -1,7 +1,7 @@
 <!-- layout.vue | page.vue | component.vue -->
 
 <template>
-    <div class="container mx-auto py-20">
+    <div class="container mx-auto py-20 bg-black">
         <h1 class="title">Exxaaaapleee</h1>
         <TextAnime />
         <div>{{ products }}</div>

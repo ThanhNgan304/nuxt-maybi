@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     'vue3-carousel-nuxt'
   ],
   primevue: {
-   
+    
   },
   carousel: {
     prefix: 'My'
